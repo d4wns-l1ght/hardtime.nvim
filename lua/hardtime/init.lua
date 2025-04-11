@@ -39,11 +39,11 @@ end
 
 local function match_filetype(ft)
    for filetype, is_disabled in pairs(config.disabled_filetypes) do
-      if filetype == ft and is_disabled[1] then
+      if filetype == ft and is_disabled then
          return true
       end
       local matcher = "^" .. filetype .. (filetype:sub(-1) == "*" and "" or "$")
-      if ft:match(matcher) and is_disabled[1] then
+      if ft:match(matcher) and is_disabled then
          return true
       end
    end
